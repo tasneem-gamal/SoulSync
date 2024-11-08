@@ -1,5 +1,3 @@
 # soulsync
 🎨 System Design
-
-
-![Alt text](https://github.com/user-attachments/assets/d725a8ad-bd8e-431d-8f0c-ddd79e42cabf)
+![Alt text](https://github.com/user-attachments/assets/b362501b-0909-4e83-a836-e598a689e992)
