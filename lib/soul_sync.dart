@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:soulsync/core/routing/app_router.dart';
 import 'package:soulsync/core/routing/routes.dart';
+import 'package:soulsync/core/theming/colors_manger.dart';
 
 class SoulSync extends StatelessWidget {
   const SoulSync({super.key, required this.appRouter});
@@ -14,6 +15,7 @@ class SoulSync extends StatelessWidget {
       child: MaterialApp(
         title: 'SoulSync',
         theme: ThemeData(
+          primaryColor: ColorsManger.primaryColor,
           scaffoldBackgroundColor: Colors.white,
           fontFamily: 'Raleway'
         ),
