@@ -33,6 +33,7 @@ dependencies:
     sdk: flutter
   flutter_native_splash: ^2.4.2
   flutter_screenutil: ^5.9.3
+  smooth_page_indicator: ^1.2.0+3
 
 dev_dependencies:
   flutter_lints: ^4.0.0
@@ -66,8 +67,6 @@ flutter:
     - family: Raleway
       fonts:
         - asset: assets/fonts/Raleway-Black.ttf
-  #
-  #
+        - asset: assets/fonts/Raleway-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
-  
