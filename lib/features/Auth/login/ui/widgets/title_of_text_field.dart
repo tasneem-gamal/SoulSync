@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:soulsync/core/theming/styles.dart';
 
-class PasswordTitle extends StatelessWidget {
-  const PasswordTitle({super.key});
-
+class TitleOfTextField extends StatelessWidget {
+  const TitleOfTextField({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          'Password',
+          title,
           style: Styles.textStyle14RegularLightGrey,
         ),
         const SizedBox(
