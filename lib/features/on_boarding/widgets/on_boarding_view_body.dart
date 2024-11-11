@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:soulsync/core/routing/routes.dart';
 import 'package:soulsync/core/widgets/custom_button.dart';
 import 'package:soulsync/features/on_boarding/widgets/on_boarding_page_one.dart';
 import 'package:soulsync/features/on_boarding/widgets/on_boarding_page_three.dart';
@@ -79,7 +80,9 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           SizedBox(height: 47.h,),
           CustomButton(
             text: 'Get Started',
-            onPressed: (){},
+            onPressed: (){
+              Navigator.pushNamed(context, Routes.loginView);
+            },
           )
         ],
       ),
