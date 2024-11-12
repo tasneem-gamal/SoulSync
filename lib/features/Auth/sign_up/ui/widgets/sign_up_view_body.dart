@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:soulsync/core/theming/styles.dart';
 import 'package:soulsync/core/widgets/constants.dart';
+import 'package:soulsync/features/Auth/sign_up/ui/widgets/sign_form.dart';
 
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});
@@ -21,6 +22,8 @@ class SignUpViewBody extends StatelessWidget {
             'Get Started Now!',
             style: Styles.textStyle16Medium,
             ),
+            SizedBox(height: 40.h,),
+            const SignForm()
           ],
         ),
       ),
