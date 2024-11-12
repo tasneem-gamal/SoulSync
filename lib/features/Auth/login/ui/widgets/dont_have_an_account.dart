@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soulsync/core/routing/routes.dart';
 import 'package:soulsync/core/theming/colors_manger.dart';
 import 'package:soulsync/core/theming/styles.dart';
 
@@ -20,7 +21,9 @@ class DontHaveAnAccount extends StatelessWidget {
           style: TextButton.styleFrom(
             padding: EdgeInsets.zero
           ),
-          onPressed: (){}, 
+          onPressed: (){
+            Navigator.pushNamed(context, Routes.signUpView);
+          }, 
           child: Text(
             'SignUp',
             style: Styles.textStyle14RegularLightGrey.copyWith(

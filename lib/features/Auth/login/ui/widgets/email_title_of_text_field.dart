@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:soulsync/core/theming/styles.dart';
 
-class EmailTitleOfTextField extends StatelessWidget {
-  const EmailTitleOfTextField({super.key});
-
+class TitleOfTextField extends StatelessWidget {
+  const TitleOfTextField({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          'Email Address',
+          title,
           style: Styles.textStyle14RegularLightGrey,
         ),
         const SizedBox(
