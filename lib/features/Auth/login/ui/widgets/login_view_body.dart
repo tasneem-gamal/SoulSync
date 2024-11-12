@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:soulsync/core/theming/colors_manger.dart';
-import 'package:soulsync/core/theming/styles.dart';
 import 'package:soulsync/core/widgets/constants.dart';
 import 'package:soulsync/core/widgets/custom_button.dart';
+import 'package:soulsync/features/Auth/login/ui/widgets/dont_have_an_account.dart';
 import 'package:soulsync/features/Auth/login/ui/widgets/login_form.dart';
 import 'package:soulsync/features/Auth/login/ui/widgets/welcome_text.dart';
 
@@ -26,32 +25,13 @@ class LoginViewBody extends StatelessWidget {
             const LoginForm(),
             SizedBox(height: 60.h,),
             const CustomButton(text: 'Login'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Don’t have an account?',
-                  style: Styles.textStyle12RegularLightGrey,
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero
-                  ),
-                  onPressed: (){}, 
-                  child: Text(
-                    'SignUp',
-                    style: Styles.textStyle14RegularLightGrey.copyWith(
-                      color: ColorsManger.primaryColor,
-                      fontWeight: FontWeight.w600
-                    ),
-                  )
-                )
-              ],
-            )
+            const DontHaveAnAccount()
           ],
         ),
       ),
     );
   }
 }
+
+
 
