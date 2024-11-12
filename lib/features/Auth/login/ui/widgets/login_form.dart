@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:soulsync/core/widgets/custom_text_form_field.dart';
-import 'package:soulsync/features/Auth/login/ui/widgets/email_title_of_text_field.dart';
+import 'package:soulsync/features/Auth/login/ui/widgets/title_of_text_field.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
