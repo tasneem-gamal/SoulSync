@@ -37,11 +37,7 @@ class _SignFormState extends State<SignForm> {
           const SizedBox(height: 12,),
           CustomTextFormField(
             controller: nameController,
-            validator: (value){
-              if(value == null || value.isEmpty){
-                return 'Name cannot be empty';
-              }
-            }
+            validator: nameValidate
           ),
           SizedBox(height: 16.h,),
           const TitleOfTextField(title: 'Email Address',),
@@ -62,34 +58,44 @@ class _SignFormState extends State<SignForm> {
           const SizedBox(height: 12,),
           CustomTextFormField( 
             controller: passwordConfirmController,
-            validator: (value){
-              if(value == null || value.isEmpty){
-                return 'Password cannot be empty';
-              }
-              if(value == passwordController.text){
-                return 'Passwords match';
-              } else{
-                return 'Passwords do not match';
-              }
-            }
+            validator: confirmPasswordValidate
           ),
           SizedBox(height: 40.h,),
           CustomButton(
-            onPressed: (){
-              if(formKey.currentState!.validate()){
-                formKey.currentState!.save();
-              } else{
-                setState(() {
-                autovalidateMode = AutovalidateMode.always;
-              });
-              }
-            },
+            onPressed: signUpVaidate,
             text: 'Sign Up'
           ),
         ],
       )
     );
   }
+
+  signUpVaidate(){
+            if(formKey.currentState!.validate()){
+              formKey.currentState!.save();
+            } else{
+              setState(() {
+              autovalidateMode = AutovalidateMode.always;
+            });
+            }
+          }
+
+  confirmPasswordValidate(value){
+            if(value == null || value.isEmpty){
+              return 'Password cannot be empty';
+            }
+            if(value == passwordController.text){
+              return 'Passwords match';
+            } else{
+              return 'Passwords do not match';
+            }
+          }
+
+  nameValidate(value){
+            if(value == null || value.isEmpty){
+              return 'Name cannot be empty';
+            }
+          }
 
   emailValidate(value) {
     if (value == null || value.isEmpty) {
