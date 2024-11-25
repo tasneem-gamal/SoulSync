@@ -49,22 +49,23 @@ class _LoginFormState extends State<LoginForm> {
           ),
           SizedBox(height: 60.h,),
           CustomButton(
-            onPressed: () {
-              if(formKey.currentState!.validate()){
-                formKey.currentState!.save();
-              } else{
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {
-                  
-                });
-              }
-            },
+            onPressed: loginValidate,
               text: 'Login',
             ),
         ],
       ),
     );
   }
+
+  loginValidate() {
+            if(formKey.currentState!.validate()){
+              formKey.currentState!.save();
+            } else{
+              setState(() {
+                autovalidateMode = AutovalidateMode.always;
+              });
+            }
+          }
 
   passwordValidate(value) {
             if (value == null || value.isEmpty) {
