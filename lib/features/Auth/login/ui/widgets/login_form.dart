@@ -19,6 +19,7 @@ class _LoginFormState extends State<LoginForm> {
   final TextEditingController passwordController = TextEditingController();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final GlobalKey<FormState> formKey = GlobalKey();
+  bool isObsecureText = true;
   
   @override
   void dispose() {
@@ -38,14 +39,23 @@ class _LoginFormState extends State<LoginForm> {
           const SizedBox(height: 12,),
           CustomTextFormField(
             controller: emailController,
-            validator: emailValidate
+            validator: emailValidate,
           ),
           SizedBox(height: 16.h,),
           const TitleOfTextField(title: 'Password'),
           const SizedBox(height: 12,),
           CustomTextFormField(
             controller: passwordController,
-            validator: passwordValidate
+            validator: passwordValidate,
+            suffixIcon: GestureDetector(
+              onTap: (){
+                setState(() {
+                  isObsecureText = !isObsecureText;
+                });
+              },
+              child: Icon(isObsecureText ? Icons.visibility_off : Icons.visibility,)
+            ),
+            isObsecureText: isObsecureText,
           ),
           SizedBox(height: 60.h,),
           CustomButton(
