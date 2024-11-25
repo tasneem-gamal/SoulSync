@@ -19,6 +19,8 @@ class _SignFormState extends State<SignForm> {
   final TextEditingController nameController = TextEditingController();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final GlobalKey<FormState> formKey = GlobalKey();
+  bool isObsecureText = true;
+  bool isPasswordConfirmationObscureText = true;
   
   @override
   void dispose() {
@@ -51,14 +53,32 @@ class _SignFormState extends State<SignForm> {
           const SizedBox(height: 12,),
           CustomTextFormField( 
             controller: passwordController,
-            validator: passwordValidate
+            validator: passwordValidate,
+            isObsecureText: isObsecureText,
+            suffixIcon: GestureDetector(
+              onTap: (){
+                setState(() {
+                  isObsecureText = !isObsecureText;
+                });
+              },
+              child: Icon(isObsecureText ? Icons.visibility_off : Icons.visibility,)
+            ),
           ),
           SizedBox(height: 16.h,),
           const TitleOfTextField(title: 'Confirm Password'),
           const SizedBox(height: 12,),
           CustomTextFormField( 
             controller: passwordConfirmController,
-            validator: confirmPasswordValidate
+            validator: confirmPasswordValidate,
+            isObsecureText: isPasswordConfirmationObscureText,
+            suffixIcon: GestureDetector(
+              onTap: (){
+                setState(() {
+                  isPasswordConfirmationObscureText = !isPasswordConfirmationObscureText;
+                });
+              },
+              child: Icon(isPasswordConfirmationObscureText ? Icons.visibility_off : Icons.visibility,)
+            ),
           ),
           SizedBox(height: 40.h,),
           CustomButton(
