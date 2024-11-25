@@ -45,9 +45,7 @@ class _LoginFormState extends State<LoginForm> {
           const SizedBox(height: 12,),
           CustomTextFormField(
             controller: passwordController,
-            validator: (value){
-              
-            }
+            validator: passwordValidate
           ),
           SizedBox(height: 60.h,),
           CustomButton(
@@ -67,6 +65,16 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
+
+  passwordValidate(value) {
+            if (value == null || value.isEmpty) {
+              return 'Password cannot be empty';
+            } if(!AppRegex.hasLowerCase(value) || !AppRegex.hasMinLength(value)
+                  || !AppRegex.isPasswordValid(value) || !AppRegex.hasSpecialCharacter(value)
+              ){
+                return "Enter a valid password: at least 6 characters,\n including one uppercase letter and one special char.";
+              }
+          }
 
   emailValidate(value) {
     if (value == null || value.isEmpty) {
