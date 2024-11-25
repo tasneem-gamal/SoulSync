@@ -16,11 +16,21 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final GlobalKey<FormState> formKey = GlobalKey();
+  
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
+      autovalidateMode: autovalidateMode,
       child: Column(
         children: [
           const TitleOfTextField(title: 'Email Address',),
@@ -37,7 +47,17 @@ class _LoginFormState extends State<LoginForm> {
             validator: (value){}
           ),
           SizedBox(height: 60.h,),
-          const CustomButton(
+          CustomButton(
+            onPressed: () {
+              if(formKey.currentState!.validate()){
+                formKey.currentState!.save();
+              } else{
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {
+                  
+                });
+              }
+            },
               text: 'Login',
             ),
         ],
