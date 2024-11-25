@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:soulsync/core/helpers/app_regex.dart';
 import 'package:soulsync/core/widgets/custom_button.dart';
 import 'package:soulsync/core/widgets/custom_text_form_field.dart';
 import 'package:soulsync/features/Auth/login/ui/widgets/title_of_text_field.dart';
@@ -37,14 +38,16 @@ class _LoginFormState extends State<LoginForm> {
           const SizedBox(height: 12,),
           CustomTextFormField(
             controller: emailController,
-            validator: (value){}
+            validator: emailValidate
           ),
           SizedBox(height: 16.h,),
           const TitleOfTextField(title: 'Password'),
           const SizedBox(height: 12,),
           CustomTextFormField(
             controller: passwordController,
-            validator: (value){}
+            validator: (value){
+              
+            }
           ),
           SizedBox(height: 60.h,),
           CustomButton(
@@ -63,5 +66,14 @@ class _LoginFormState extends State<LoginForm> {
         ],
       ),
     );
+  }
+
+  emailValidate(value) {
+    if (value == null || value.isEmpty) {
+      return 'Email cannot be empty';
+    }
+    if (!AppRegex.isEmailValid(value)) {
+      return 'Enter a valid email address';
+    }
   }
 }
