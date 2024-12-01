@@ -8,5 +8,3 @@
   
 ![Alt text](https://github.com/user-attachments/assets/eca9dcf8-4502-4f6e-92d6-959bcfeddc22)
 
-<img src="[link_to_your_image](https://github.com/user-attachments/assets/eca9dcf8-4502-4f6e-92d6-959bcfeddc22)" width="300" />
-
